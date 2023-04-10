@@ -18,7 +18,8 @@ const userSchema = new Schema({
     required: true
   },
   userType: {
-    photographer: Boolean,
+    type: String,
+    enum: ['client', 'photographer'],
     required: true,
   },
 }, {
