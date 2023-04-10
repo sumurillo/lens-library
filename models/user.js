@@ -16,7 +16,11 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true
-  }
+  },
+  userType: {
+    photographer: Boolean,
+    required: true,
+  },
 }, {
   timestamps: true,
   toJSON: {
