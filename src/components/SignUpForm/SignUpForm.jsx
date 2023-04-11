@@ -6,8 +6,8 @@ export default class SignUpForm extends Component {
   state = {
     name: '',
     email: '',
-    password: '',
     userType: '',
+    password: '',
     confirm: '',
     error: ''
   };
@@ -33,6 +33,8 @@ export default class SignUpForm extends Component {
         <Route exact path="/newBusiness">
           <Navigate to="/newBusiness" />
         </Route>
+      } else {
+        <Navigate to="/" />
       }
     } catch {
       // An error occurred
