@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { signUp } from '../../utilities/users-service';
+import business from '../../../models/business';
 
 export default class SignUpForm extends Component {
   state = {
@@ -21,13 +22,10 @@ export default class SignUpForm extends Component {
   handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
-      const {name, email, password, userType} = this.state;
-      const formData = {name, email, password, userType};
-      // The promise returned by the signUp service
-      // method will resolve to the user object included
-      // in the payload of the JSON Web Token (JWT)
-      const user = await signUp(formData);
-      this.props.setUser(user);
+      const {name, location, price, services} = this.state;
+      const formData = {name, location, price, services};
+      const user = await newBusiness(formData);
+      this.props.setBusiness(business);
     } catch {
       // An error occurred
       // Probably due to a duplicate email
@@ -36,7 +34,7 @@ export default class SignUpForm extends Component {
   };
 
   render() {
-    const disable = this.state.password !== this.state.confirm;
+    const disable = this.state.business !== this.state.confirm;
     return (
       <div>
         <div className="form-container">
@@ -44,12 +42,12 @@ export default class SignUpForm extends Component {
             <label>Business Name</label>
             <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
             <label>Location</label>
-            <input type="text" name="location" value={this.state.email} onChange={this.handleChange} required />
+            <input type="text" name="location" value={this.state.location} onChange={this.handleChange} required />
             <label>Price</label>
-            <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
+            <input type="int" name="price" value={this.state.price} onChange={this.handleChange} required />
             <label>Services</label>
-            <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
-            <button type="submit" disabled={disable}>SIGN UP</button>
+            <input type="text" name="services" value={this.state.services} onChange={this.handleChange} required />
+            <button type="submit" disabled={disable}>SUBMIT</button>
           </form>
         </div>
         <p className="error-message">&nbsp;{this.state.error}</p>
