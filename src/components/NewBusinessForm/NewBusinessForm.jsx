@@ -8,7 +8,7 @@ export default class SignUpForm extends Component {
     location: '',
     price: '',
     services: '',
-    confirm: '',
+    photos: '',
     error: ''
   };
 
@@ -47,6 +47,8 @@ export default class SignUpForm extends Component {
             <input type="int" name="price" value={this.state.price} onChange={this.handleChange} required />
             <label>Services</label>
             <input type="text" name="services" value={this.state.services} onChange={this.handleChange} required />
+            <label>Photos</label>
+            <input type="img" name="photos" value={this.state.photos} onChange={this.handleChange} required />
             <button type="submit" disabled={disable}>SUBMIT</button>
           </form>
         </div>

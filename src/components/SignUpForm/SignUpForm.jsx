@@ -6,7 +6,7 @@ export default class SignUpForm extends Component {
   state = {
     name: '',
     email: '',
-    userType: '',
+    userType: 'client',
     password: '',
     confirm: '',
     error: ''
@@ -54,7 +54,7 @@ export default class SignUpForm extends Component {
             <label>Email</label>
             <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
             <label>Client or Photographer?</label>
-            <select name="userType" id="userType">
+            <select name="userType" id="userType" onChange={this.handleChange}>
               <option value="client">Client</option>
               <option value="photographer">Photographer</option>
             </select>
