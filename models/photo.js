@@ -9,7 +9,6 @@ const photoSchema = {
       type: Schema.Types.ObjectId,
       ref: 'User'
     },
-      dateTaken: Date,
       dimensions: {
         width: Number,
         height: Number
