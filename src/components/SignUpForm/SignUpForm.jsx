@@ -53,6 +53,11 @@ export default class SignUpForm extends Component {
             <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
             <label>Email</label>
             <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
+            <label>Client or Photographer?</label>
+            <select name="userType" id="userType">
+              <option value="client">Client</option>
+              <option value="photographer">Photographer</option>
+            </select>
             <label>Password</label>
             <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
             <label>Confirm</label>
