@@ -1,13 +1,12 @@
 import { Component } from 'react';
 import { signUp } from '../../utilities/users-service';
-import { Route, Navigate } from 'react-router-dom';
 
 export default class SignUpForm extends Component {
   state = {
     name: '',
-    email: '',
-    password: '',
-    userType: '',
+    location: '',
+    price: '',
+    services: '',
     confirm: '',
     error: ''
   };
@@ -29,11 +28,6 @@ export default class SignUpForm extends Component {
       // in the payload of the JSON Web Token (JWT)
       const user = await signUp(formData);
       this.props.setUser(user);
-      if (userType === 'photographer') {
-        <Route exact path="/newBusiness">
-          <Navigate to="/newBusiness" />
-        </Route>
-      }
     } catch {
       // An error occurred
       // Probably due to a duplicate email
@@ -47,12 +41,17 @@ export default class SignUpForm extends Component {
       <div>
         <div className="form-container">
           <form autoComplete="off" onSubmit={this.handleSubmit}>
-            <label>Name</label>
+            <label>Business Name</label>
             <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
-            <label>Email</label>
-            <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
-            <label>Password</label>
+            <label>Location</label>
+            <input type="text" name="location" value={this.state.email} onChange={this.handleChange} required />
+            <label>Price</label>
             <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
+            <label>Client or Photographer?</label>
+            <select name="userType" id="userType">
+                <option value="client">Client</option>
+                <option value="photographer">Photographer</option>
+            </select>
             <label>Confirm</label>
             <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
             <button type="submit" disabled={disable}>SIGN UP</button>

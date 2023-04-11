@@ -22,6 +22,11 @@ const userSchema = new Schema({
     enum: ['client', 'photographer'],
     required: true,
   },
+  business: {
+    type: Schema.Types.ObjectId,
+    ref: 'Business',
+    required: false
+  }
 }, {
   timestamps: true,
   toJSON: {

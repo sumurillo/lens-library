@@ -3,10 +3,17 @@ const bcrypt = require('bcrypt');
 const User = require('../../models/user');
 
 module.exports = {
+  index,
   create,
   login,
   checkToken
 };
+
+function index(req, res) {
+  business.find({}, function(err, businesses) {
+    res.json(req.body)
+  })
+}
 
 function checkToken(req, res) {
   console.log('req.user', req.user);

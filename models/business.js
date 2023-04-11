@@ -10,10 +10,6 @@ const businessSchema = new Schema({
         type: String,
         required: true
     },
-    password: {
-        type: String,
-        required: true
-    },
     price: {
         type: Int, 
         required: true
