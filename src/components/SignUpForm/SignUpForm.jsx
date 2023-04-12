@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { signUp } from '../../utilities/users-service';
-import { Route, Navigate } from 'react-router-dom';
+import { Route, useNavigate } from 'react-router-dom';
 
 export default class SignUpForm extends Component {
   state = {
@@ -12,6 +12,7 @@ export default class SignUpForm extends Component {
     error: ''
   };
 
+  
   handleChange = (evt) => {
     this.setState({
       [evt.target.name]: evt.target.value,
@@ -20,6 +21,7 @@ export default class SignUpForm extends Component {
   };
 
   handleSubmit = async (evt) => {
+    let navigate = useNavigate();
     evt.preventDefault();
     try {
       const {name, email, password, userType} = this.state;
@@ -30,11 +32,9 @@ export default class SignUpForm extends Component {
       const user = await signUp(formData);
       this.props.setUser(user);
       if (userType === 'photographer') {
-        <Route exact path="/newBusiness">
-          <Navigate to="/newBusiness" />
-        </Route>
+        navigate("/newBusiness")
       } else {
-        <Navigate to="/" />
+        navigate("/")
       }
     } catch {
       // An error occurred
