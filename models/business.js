@@ -11,18 +11,18 @@ const businessSchema = new Schema({
         required: true
     },
     price: {
-        type: Int, 
+        type: String, 
         required: true
     },
     services: {
         type: String, 
         required: true
     },
-    photos: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Photo',
-        required: true
-    }]
+    // photos: [{
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Photo',
+    //     required: true
+    // }]
   }, {
   });
 
