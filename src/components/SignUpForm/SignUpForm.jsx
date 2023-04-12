@@ -1,6 +1,7 @@
 import { Component } from 'react';
+
 import { signUp } from '../../utilities/users-service';
-import { Route, useNavigate } from 'react-router-dom';
+
 
 export default class SignUpForm extends Component {
   state = {
@@ -13,15 +14,15 @@ export default class SignUpForm extends Component {
   };
 
   
+
   handleChange = (evt) => {
     this.setState({
       [evt.target.name]: evt.target.value,
       error: ''
     });
   };
-
+ 
   handleSubmit = async (evt) => {
-    let navigate = useNavigate();
     evt.preventDefault();
     try {
       const {name, email, password, userType} = this.state;
@@ -31,16 +32,20 @@ export default class SignUpForm extends Component {
       // in the payload of the JSON Web Token (JWT)
       const user = await signUp(formData);
       this.props.setUser(user);
-      if (userType === 'photographer') {
-        navigate("/newBusiness")
+      console.log(user)
+      if (user.userType === 'photographer') {
+        console.log('works');
+        this.props.history.push("/manage-business");
       } else {
-        navigate("/")
+        console.log('somewhere');
+        // <Navigate to="/businesses" />
       }
     } catch {
       // An error occurred
       // Probably due to a duplicate email
       this.setState({ error: 'Sign Up Failed - Try Again' });
     }
+    
   };
 
   render() {
