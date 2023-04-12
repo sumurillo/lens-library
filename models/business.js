@@ -23,7 +23,6 @@ const businessSchema = new Schema({
     //     ref: 'Photo',
     //     required: true
     // }]
-  }, {
   });
 
 module.exports = mongoose.model('Business', businessSchema);

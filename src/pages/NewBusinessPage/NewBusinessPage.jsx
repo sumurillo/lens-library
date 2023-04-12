@@ -2,7 +2,7 @@ import { useState } from 'react';
 import * as businessesService from '../../utilities/businesses-service';
 
 
-export default function BusinessPage() {
+export default function NewBusinessPage() {
   const [business, setBusiness] = useState({
     name: '',
     location: '',
@@ -19,11 +19,11 @@ export default function BusinessPage() {
   async function handleSubmit(evt) {
     evt.preventDefault();
     await businessesService.create(business);
-    setTask({ name: '', location: '', price: '', services: '' })
+    setBusiness({ name: '', location: '', price: '', services: '' })
   }
   return (
     <>
-  <h2>Add Your Business</h2>
+  <h2>Your Business Page</h2>
       <form autoComplete="off" onSubmit={handleSubmit}>
         <label>Business Name</label>
         <input type="text" name="name" value={ state.name } onChange={handleChange} required />
@@ -36,7 +36,7 @@ export default function BusinessPage() {
           <option value="$$$-$$$$">$$$-$$$$</option>
         </select>
         <label>Services</label>
-        <input type="text" name="services" value={state.services} onChange={handleChange} required />
+        <input type="text" name="services" value={ state.services } onChange={handleChange} required />
         {/* <label>Photos</label>
         <input type="img" name="photos" value={this.state.photos} onChange={this.handleChange} required /> */}
         <button type="submit" disabled={disable}>SUBMIT</button>
