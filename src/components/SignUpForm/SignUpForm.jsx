@@ -1,5 +1,5 @@
 import { Component } from 'react';
-
+import { Navigate} from 'react-router-dom'
 import { signUp } from '../../utilities/users-service';
 
 
@@ -10,7 +10,7 @@ export default class SignUpForm extends Component {
     userType: 'client',
     password: '',
     confirm: '',
-    error: ''
+    error: '',
   };
 
   
@@ -33,12 +33,12 @@ export default class SignUpForm extends Component {
       const user = await signUp(formData);
       this.props.setUser(user);
       console.log(user)
-      if (user.userType === 'photographer') {
+      if (this.state.user.userType === 'photographer') {
         console.log('works');
-        this.props.history.push("/manage-business");
+        <Navigate to="/manage-business" />
       } else {
         console.log('somewhere');
-        // <Navigate to="/businesses" />
+        <Navigate to="/businesses" />
       }
     } catch {
       // An error occurred
