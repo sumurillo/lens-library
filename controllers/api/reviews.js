@@ -1,4 +1,4 @@
-const Business = require('../../models/business');
+const Review = require('../../models/review');
 
 module.exports = {
   index,
@@ -8,8 +8,8 @@ module.exports = {
 
 async function index(req, res) {
   try {
-    const businesses = await Business.find({});
-    res.json(businesses)
+    const reviews = await Reviews.find({});
+    res.json(reviews)
   } catch (err) {
     res.json(400)
   }
@@ -20,10 +20,10 @@ async function create(req, res) {
   req.body.userId = req.user._id
   try {
     console.log(req.body)
-    const newBusiness = new Business(req.body)
-    newBusiness.save()
-    console.log(newBusiness);
-    res.json(newBusiness)
+    const newReview = new Review(req.body)
+    newReview.save()
+    console.log(newReview);
+    res.json(newReview)
   } catch (err) {
     res.json(400)
   }

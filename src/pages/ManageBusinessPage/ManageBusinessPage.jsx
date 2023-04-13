@@ -23,7 +23,7 @@ export default function ManageBusinessPage() {
   }
   return (
     <>
-    <h1>New Task</h1>
+    <h1>Your Business</h1>
     <form action="" onSubmit={handleSubmit}>
     <label htmlFor="name">Name:
         <input type="text" name="name" id="name" value={ business.name } onChange={handleChange} />

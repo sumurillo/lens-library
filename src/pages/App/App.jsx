@@ -6,6 +6,7 @@ import AuthPage from '../AuthPage/AuthPage';
 import NavBar from '../../components/NavBar/NavBar';
 import AllBusinessesPage from '../AllBusinessesPage/AllBusinessesPage';
 import ManageBusinessPage from '../ManageBusinessPage/ManageBusinessPage';
+import NewReviewPage from '../NewReviewPage/NewReviewPage';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -19,6 +20,7 @@ export default function App() {
               {/* Route components in here */}
               <Route path="/" element={<AllBusinessesPage />} />
               <Route path="/manage-business" element={<ManageBusinessPage />} />
+              <Route path="/add-review" element={<NewReviewPage />} />
             </Routes>
           </>
           :
