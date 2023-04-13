@@ -33,13 +33,6 @@ export default class SignUpForm extends Component {
       const user = await signUp(formData);
       this.props.setUser(user);
       console.log(user)
-      if (this.state.user.userType === "photographer") {
-        console.log('works');
-        <Navigate to="/manage-business" />
-      } else {
-        console.log('somewhere');
-        <Navigate to="/businesses" />
-      }
     } catch {
       // An error occurred
       // Probably due to a duplicate email

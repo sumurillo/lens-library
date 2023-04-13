@@ -6,12 +6,18 @@ export default function NavBar({ user, setUser }) {
     userService.logOut();
     setUser(null);
   }
-
+  let link = "";
+  if (user.userType === 'photographer') {
+    link = <Link to="/manage-business">Manage My Business</Link>
+  } else {
+    link = <Link to="/add-review">Add Review</Link>
+  }
+  
   return (
     <nav>
-      <Link to="/businesses">Photographers</Link>
+      <Link to="/">Photographers</Link>
       &nbsp; | &nbsp;
-      <Link to="/manage-business">Manage My Business</Link>
+      { link }
       &nbsp;&nbsp;
       <span>Welcome, {user.name}</span>
       &nbsp;&nbsp;<Link to="" onClick={handleLogOut}>Log Out</Link>
