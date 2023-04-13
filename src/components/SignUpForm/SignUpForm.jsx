@@ -33,7 +33,7 @@ export default class SignUpForm extends Component {
       const user = await signUp(formData);
       this.props.setUser(user);
       console.log(user)
-      if (this.state.user.userType === 'photographer') {
+      if (this.state.user.userType === "photographer") {
         console.log('works');
         <Navigate to="/manage-business" />
       } else {

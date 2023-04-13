@@ -2,21 +2,14 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const photoSchema = {
-    photos: [{
-      file: Buffer,
-      mimetype: String,
-      photographer: { 
+    url: {
+      type: String,
+      required: false
+    },
+    user: {
       type: Schema.Types.ObjectId,
       ref: 'User'
-    },
-      dimensions: {
-        width: Number,
-        height: Number
-      },
-      fileSize: Number,
-      imageFormat: String,
-      required: true
-    }]
+    }
   }
   
 

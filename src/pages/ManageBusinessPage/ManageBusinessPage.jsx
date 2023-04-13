@@ -8,7 +8,7 @@ export default function ManageBusinessPage() {
     location: '',
     price: '$-$$',
     services: '',
-    // photos: '',
+    photos: '',
   });
 
   function handleChange(evt) {
@@ -19,7 +19,7 @@ export default function ManageBusinessPage() {
   async function handleSubmit(evt) {
     evt.preventDefault();
     await businessesService.create(business);
-    setBusiness({ name: '', location: '', price: '', services: '' })
+    setBusiness({ name: '', location: '', price: '', services: '', photo: '' })
   }
   return (
     <>
@@ -33,12 +33,14 @@ export default function ManageBusinessPage() {
       </label>
       <label htmlFor="price">Pricing Range:</label>
             <select name="price" id="price" onChange={handleChange}>
-              <option value="$-$$">$-$$</option>
-              <option value="$$-$$$">$$-$$$</option>
-              <option value="$$$-$$$$">$$$-$$$$</option>
+              <option name= "price" value="$-$$">$-$$</option>
+              <option name= "price" value="$$-$$$">$$-$$$</option>
+              <option name= "price" value="$$$-$$$$">$$$-$$$$</option>
             </select>
       <label htmlFor="services">Services:</label>
       <input type="text" name="services" id="services" value={ business.services } onChange={handleChange} />
+      <label htmlFor="photos">Photos:</label>
+      <input type = "url" name = "photos" placeholder="add url to your image"/>
       <input type="submit" value="Submit" />
     </form>
     </>

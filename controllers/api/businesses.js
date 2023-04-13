@@ -19,7 +19,10 @@ async function index(req, res) {
 async function create(req, res) {
   req.body.userId = req.user._id
   try {
-    const newBusiness = await Business.create(req.body);
+    console.log(req.body)
+    // const newBusiness = await Business.create(req.body);
+    const newBusiness = new Business(req.body)
+    newBusiness.save()
     console.log(newBusiness);
     res.json(newBusiness)
   } catch (err) {
