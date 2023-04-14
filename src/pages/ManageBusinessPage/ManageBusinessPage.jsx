@@ -19,8 +19,13 @@ export default function ManageBusinessPage() {
   async function handleSubmit(evt) {
     evt.preventDefault();
     await businessesService.create(business);
-    setBusiness({ name: '', location: '', price: '', services: '', photo: '' })
+    setBusiness({ name: '', location: '', price: '', services: ''})
   }
+
+  async function handlePhotoSubmit() {
+
+  }
+
   return (
     <>
     <h1>Your Business</h1>
@@ -39,6 +44,9 @@ export default function ManageBusinessPage() {
             </select>
       <label htmlFor="services">Services:</label>
       <input type="text" name="services" id="services" value={ business.services } onChange={handleChange} />
+      <input type="submit" value="Submit" />
+    </form>
+    <form action="" onSubmit={handlePhotoSubmit}>
       <label htmlFor="photos">Photos:</label>
       <input type = "url" name = "photos" placeholder="add url to your image"/>
       <input type="submit" value="Submit" />

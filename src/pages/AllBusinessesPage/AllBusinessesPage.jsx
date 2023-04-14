@@ -14,15 +14,18 @@ export default function AllBusinessesPage() {
   return (
     <>
     <h1>AllBusinessesPage</h1>
-    <Link to={'/models/business'} >
-      <div>
-        {/* <h1>{business.name}</h1>
-        <h3>{business.location}</h3>
-        <h3>{business.price}</h3>
-        <h3>{business.services}</h3>
-        <h3>{business.photos}</h3>
-        <img src={business.posterPath} alt="" /> */}
-      </div>
+    <Link to={'/manage-business'} >
+    <div>
+      {businesses.map((business) => (
+              <div>
+              <h1>{business.name}</h1>
+              <h3>{business.location}</h3>
+              <h3>{business.price}</h3>
+              <h3>{business.services}</h3>
+              <h3>{business.photos}</h3>
+            </div>
+      ))}
+    </div>
     </Link>
     </>
   );
