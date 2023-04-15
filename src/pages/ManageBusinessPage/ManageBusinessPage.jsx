@@ -42,7 +42,7 @@ export default function ManageBusinessPage() {
       <label htmlFor="services">Services:</label>
       <input type="text" name="services" id="services" value={ business.services } onChange={handleChange} />
       <label htmlFor="portfolio">Portfolio:</label>
-      <input type="text" name="portfolio" id="portfolio" value={ business.portfolio } onChange={handleChange} />
+      <input type="url" name="portfolio" id="portfolio" value={ business.portfolio } onChange={handleChange} />
       <input type="submit" value="Submit" />
     </form>
 

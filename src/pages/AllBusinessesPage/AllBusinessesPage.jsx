@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom"
 import * as businessesService from '../../utilities/businesses-service';
 
 export default function AllBusinessesPage() {
@@ -14,7 +13,6 @@ export default function AllBusinessesPage() {
   return (
     <>
     <h1>AllBusinessesPage</h1>
-    <Link to={'/manage-business'} >
     <div>
       { businesses.map( business => (
               <div>
@@ -22,11 +20,10 @@ export default function AllBusinessesPage() {
               <h3>{business.location}</h3>
               <h3>{business.price}</h3>
               <h3>{business.services}</h3>
-              <h3>{business.portfolio}</h3>
+              <a href={business.portfolio}>Check out my portfolio!</a>
             </div>
       ))}
     </div>
-    </Link>
     </>
   );
 }
