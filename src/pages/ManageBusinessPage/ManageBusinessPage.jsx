@@ -8,7 +8,8 @@ export default function ManageBusinessPage() {
     location: '',
     price: '$-$$',
     services: '',
-    photos: '',
+    portfolio: ''
+
   });
 
   function handleChange(evt) {
@@ -19,11 +20,7 @@ export default function ManageBusinessPage() {
   async function handleSubmit(evt) {
     evt.preventDefault();
     await businessesService.create(business);
-    setBusiness({ name: '', location: '', price: '', services: ''})
-  }
-
-  async function handlePhotoSubmit() {
-
+    setBusiness({ name: '', location: '', price: '', services: '', portfolio: '' })
   }
 
   return (
@@ -44,13 +41,11 @@ export default function ManageBusinessPage() {
             </select>
       <label htmlFor="services">Services:</label>
       <input type="text" name="services" id="services" value={ business.services } onChange={handleChange} />
+      <label htmlFor="portfolio">Portfolio:</label>
+      <input type="text" name="portfolio" id="portfolio" value={ business.portfolio } onChange={handleChange} />
       <input type="submit" value="Submit" />
     </form>
-    <form action="" onSubmit={handlePhotoSubmit}>
-      <label htmlFor="photos">Photos:</label>
-      <input type = "url" name = "photos" placeholder="add url to your image"/>
-      <input type="submit" value="Submit" />
-    </form>
+
     </>
 
   );

@@ -18,10 +18,10 @@ const businessSchema = new Schema({
         type: String, 
         required: true
     },
-    photos: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Photo',
-    }]
+    portfolio: {
+        type: String,
+        required: false
+    }
   });
 
 module.exports = mongoose.model('Business', businessSchema);
