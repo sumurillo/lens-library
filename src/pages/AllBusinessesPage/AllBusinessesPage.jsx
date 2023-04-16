@@ -17,7 +17,7 @@ export default function AllBusinessesPage() {
     <div>
       { businesses.map( business => (
         <div id="business">
-            <Link to={'/business-detail'} >
+            <Link to={'/details'} >
               <h1>{business.name}</h1>
             </Link>
               <h3>{business.location}</h3>

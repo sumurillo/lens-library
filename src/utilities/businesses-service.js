@@ -12,3 +12,8 @@ export async function get() {
 export async function updateBusiness(businessObj) {
   return await businessesAPI.updateBusiness(businessObj);
 }
+
+export async function getBusiness(id) {
+  const business = await businessesAPI.getBusiness(id);
+  return business
+};

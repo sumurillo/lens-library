@@ -5,6 +5,7 @@ import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
 import NavBar from '../../components/NavBar/NavBar';
 import AllBusinessesPage from '../AllBusinessesPage/AllBusinessesPage';
+import MyBusinessPage from '../MyBusinessPage/MyBusinessPage';
 import ManageBusinessPage from '../ManageBusinessPage/ManageBusinessPage';
 import NewReviewPage from '../NewReviewPage/NewReviewPage';
 
@@ -19,7 +20,8 @@ export default function App() {
             <Routes>
               {/* Route components in here */}
               <Route path="/" element={<AllBusinessesPage />} />
-              <Route path="/manage-business" element={<ManageBusinessPage />} />
+              <Route path="/:id/manage-business/" element={<ManageBusinessPage />} />
+              <Route path="/:id" element={<MyBusinessPage />} />
               <Route path="/add-review" element={<NewReviewPage />} />
             </Routes>
           </>

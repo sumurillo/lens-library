@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom'
 import * as businessesService from '../../utilities/businesses-service';
 
 
@@ -29,7 +28,7 @@ export default function ManageBusinessPage() {
     <>
     <h1>Your Business</h1>
     
-    <form action="" onSubmit={handleSubmit}>
+    <form action="" onSubmit={handleSubmit} >
       <label htmlFor="name">Name:
         <input type="text" name="name" id="name" value={ business.name } onChange={handleChange} />
       </label>
@@ -47,8 +46,6 @@ export default function ManageBusinessPage() {
       <label htmlFor="portfolio">Portfolio:</label>
       <input type="url" name="portfolio" id="portfolio" value={ business.portfolio } onChange={handleChange} />
       <input type="submit" value="Submit" />
-      <input type="submit" value="Edit" />
-      <input type="submit" value="Delete" />
       
     </form>
 

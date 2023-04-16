@@ -4,8 +4,9 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 const businessesCtrl = require('../../controllers/api/businesses');
 
 
-router.post('/', businessesCtrl.create);
 router.get('/', businessesCtrl.index)
-router.put('/update', ensureLoggedIn, businessesCtrl.updateBusiness);
+router.get('/:id', businessesCtrl.getBusiness);
+router.post('/', businessesCtrl.create);
+router.put('/:id', businessesCtrl.updateBusiness);
 
 module.exports = router;

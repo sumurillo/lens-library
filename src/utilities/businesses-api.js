@@ -10,6 +10,10 @@ export async function getBusinesses() {
   return await sendRequest(BASE_URL);
 }
 
+export async function getBusiness(Id) {
+  return sendRequest(`${BASE_URL}/${Id}`)
+}
+
 export async function updateBusiness(businessObj) {
   return await sendRequest(`${BASE_URL}/update`, 'PUT', businessObj);
 }

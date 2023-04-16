@@ -2,6 +2,7 @@ const Business = require('../../models/business');
 
 module.exports = {
   index,
+  getBusiness,
   create,
   updateBusiness,
   edit,
@@ -18,6 +19,15 @@ async function index(req, res) {
   }
 }
 
+async function getBusiness(req, res) {
+  try {
+    const oneBusiness = await Business.findById(req.params.id);
+    res.json(oneBusiness);
+  } catch (err) {
+    console.log(err)
+    res.status(400).json(err);
+  }
+}
 
 async function create(req, res) {
   req.body.userId = req.user._id
