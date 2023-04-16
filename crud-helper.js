@@ -7,3 +7,6 @@ const User = require('./models/user');
 const Business = require('./models/business');
 const Review = require('./models/review');
 const Photo = require('./models/photo');
+
+// let user, business, review;
+// let users, businesses, reviews;

@@ -33,7 +33,7 @@ async function create(req, res) {
 async function updateBusiness(req, res) {
   console.log(req.body)
   try {
-      const updatedBusiness = await Post.findByIdAndUpdate(req.body._id, { $set: {
+      const updated = await Post.findByIdAndUpdate(req.body._id, { $set: {
           content: req.body.content,
       }}, { new: true });
       res.json(updatedBusiness)

@@ -8,3 +8,7 @@ export async function create(businessData) {
 export async function get() {
   return await businessesAPI.getBusinesses();
 }
+
+export async function updateBusiness(businessObj) {
+  return await businessesAPI.updateBusiness(businessObj);
+}
