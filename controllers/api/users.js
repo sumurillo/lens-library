@@ -5,7 +5,8 @@ const User = require('../../models/user');
 module.exports = {
   create,
   login,
-  checkToken
+  checkToken,
+  getUser
 };
 
 
@@ -39,6 +40,17 @@ async function login(req, res) {
   } catch (err) {
     res.status(400).json('Bad Credentials');
   }
+}
+
+async function getUser(req, res) {
+  try {
+    const userId = req.user._id; // Retrieve the user ID from the req.user object
+    const user = await User.findOne({_id: userId});
+    console.log((user)) // Find the user with the ID
+    res.json(user); // Return the user object
+  } catch (err) {
+    console.error(err); // Handle any errors
+  } 
 }
 
 /*--- Helper Functions --*/

@@ -1,4 +1,5 @@
 const Business = require('../../models/business');
+const User = require('../../models/user');
 
 module.exports = {
   index,
@@ -21,8 +22,9 @@ async function index(req, res) {
 
 async function getBusiness(req, res) {
   try {
-    const oneBusiness = await Business.findById(req.params.id);
-    res.json(oneBusiness);
+    const business = await Business.findById(req.params.id);
+    const user = await User.findById(req.params.id);
+    res.json(Business);
   } catch (err) {
     console.log(err)
     res.status(400).json(err);

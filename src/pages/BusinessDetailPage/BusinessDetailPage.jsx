@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
-export default function myBusiness() {
-  const [myBusiness, setMyBusiness] = useState(null);
+export default function oneBusiness() {
+  const [oneBusiness, setOneBusiness] = useState(null);
 
   useEffect(() => {
     async function fetchBusiness() {
       try {
-        const response = await fetch('/api/my-data-collection');
-        const data = await response.json();
-        setMyData(data);
+        const response = await fetch('/api/business/:id');
+        const business = await response.json();
+        setOneBusiness(business);
       } catch (error) {
         console.log(error);
       }
@@ -17,15 +17,17 @@ export default function myBusiness() {
     fetchBusiness();
   }, []);
 
-  if (!myBusiness) {
+  if (!oneBusiness) {
     return <div>Loading...</div>;
   }
 
   return (
     <div>
-      <h1>{myBusiness.name}</h1>
-      <p>{myBusiness.description}</p>
-      {/* Render other details of myData as desired */}
+      <h1>{oneBusiness.name}</h1>
+      <h3>{oneBusiness.location}</h3>
+      <h3>{oneBusiness.price}</h3>
+      <h3>{oneBusiness.services}</h3>
+      <h3>{oneBusiness.portfolio}</h3>
     </div>
   );
 }

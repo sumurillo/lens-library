@@ -1,8 +1,19 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"
 import * as businessesService from '../../utilities/businesses-service';
+import * as usersAPI from '../../utilities/users-api';
 
 export default function AllBusinessesPage() {
+  const [user, setUser] = useState(null)
+  useEffect(function() {
+    async function getAUser() {
+      const userReceived = await usersAPI.getUser();
+      setUser(userReceived);
+    }
+    getAUser();
+  }, []);
+  
+
   const [businesses, setBusinesses] = useState([])
   useEffect(function(){
     async function retrieveBusinesses() {
@@ -11,6 +22,8 @@ export default function AllBusinessesPage() {
     }
     retrieveBusinesses()
   },[])
+
+
   return (
     <>
     <h1>AllBusinessesPage</h1>

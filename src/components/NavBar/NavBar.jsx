@@ -8,7 +8,7 @@ export default function NavBar({ user, setUser }) {
   }
   let link = "";
   if (user.userType === 'photographer') {
-    link = <Link to="/:id">My Business</Link>
+    link = <Link to="/my-business">My Business</Link>
   } else {
     link = <Link to="/add-review">Add Review</Link>
   }

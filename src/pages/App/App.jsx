@@ -20,8 +20,8 @@ export default function App() {
             <Routes>
               {/* Route components in here */}
               <Route path="/" element={<AllBusinessesPage />} />
-              <Route path="/:id/manage-business/" element={<ManageBusinessPage />} />
-              <Route path="/:id" element={<MyBusinessPage />} />
+              <Route path="/my-business/edit" element={<ManageBusinessPage />} />
+              <Route path="/my-business" element={<MyBusinessPage />} />
               <Route path="/add-review" element={<NewReviewPage />} />
             </Routes>
           </>
