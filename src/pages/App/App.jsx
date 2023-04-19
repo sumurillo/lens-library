@@ -8,6 +8,7 @@ import AllBusinessesPage from '../AllBusinessesPage/AllBusinessesPage';
 import MyBusinessPage from '../MyBusinessPage/MyBusinessPage';
 import ManageBusinessPage from '../ManageBusinessPage/ManageBusinessPage';
 import NewReviewPage from '../NewReviewPage/NewReviewPage';
+import BusinessDetailPage from '../BusinessDetailPage/BusinessDetailPage';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -22,7 +23,9 @@ export default function App() {
               <Route path="/" element={<AllBusinessesPage />} />
               <Route path="/my-business/edit" element={<ManageBusinessPage />} />
               <Route path="/my-business" element={<MyBusinessPage />} />
+              <Route path="/businesses/:id" element={<BusinessDetailPage />} />
               <Route path="/add-review" element={<NewReviewPage />} />
+
             </Routes>
           </>
           :

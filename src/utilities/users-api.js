@@ -15,5 +15,5 @@ export async function checkToken() {
 }
 
 export async function getUser() {
-  return sendRequest(BASE_URL, 'GET')
+  return sendRequest(BASE_URL)
 }

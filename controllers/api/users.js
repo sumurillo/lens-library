@@ -56,6 +56,7 @@ async function getUser(req, res) {
 /*--- Helper Functions --*/
 
 function createJWT(user) {
+  console.log(user)
   return jwt.sign(
     // data payload
     { user },

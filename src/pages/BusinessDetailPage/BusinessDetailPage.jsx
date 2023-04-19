@@ -1,33 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from "react";
+import * as businessesService from '../../utilities/businesses-service';
+import { useParams } from "react-router-dom";
 
-export default function oneBusiness() {
-  const [oneBusiness, setOneBusiness] = useState(null);
 
-  useEffect(() => {
-    async function fetchBusiness() {
-      try {
-        const response = await fetch('/api/business/:id');
-        const business = await response.json();
-        setOneBusiness(business);
-      } catch (error) {
-        console.log(error);
+export default function BusinessDetail() {
+  const [business, setBusiness] = useState([])
+  let {id}= useParams()
+
+  useEffect(function() {
+    console.log('im in useEffects')
+      async function retrieveBusiness() {
+          const retrievedBusiness = await businessesService.getBusinessDetail(id);
+          setBusiness(retrievedBusiness)
       }
-    }
+     retrieveBusiness()
+  }, []) 
 
-    fetchBusiness();
-  }, []);
-
-  if (!oneBusiness) {
-    return <div>Loading...</div>;
-  }
 
   return (
+    <>
+    <h1>BusinessDetailPage</h1>
     <div>
-      <h1>{oneBusiness.name}</h1>
-      <h3>{oneBusiness.location}</h3>
-      <h3>{oneBusiness.price}</h3>
-      <h3>{oneBusiness.services}</h3>
-      <h3>{oneBusiness.portfolio}</h3>
+      <h1>{business.name}</h1>
+      <p>Location: {business.location}</p>
+      <p>Price Range: {business.price}</p>
+      <p>Services: {business.services}</p>
+      <p>Check out my work: {business.portfolio}</p>
     </div>
+    </>
   );
-}
+};

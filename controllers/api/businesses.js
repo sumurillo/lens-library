@@ -3,7 +3,8 @@ const User = require('../../models/user');
 
 module.exports = {
   index,
-  getBusiness,
+  // getBusiness,
+  getBusinessDetail,
   create,
   updateBusiness,
   edit,
@@ -20,16 +21,24 @@ async function index(req, res) {
   }
 }
 
-async function getBusiness(req, res) {
+
+async function getBusinessDetail (req, res) {
+  console.log(req.params)
   try {
     const business = await Business.findById(req.params.id);
-    const user = await User.findById(req.params.id);
-    res.json(Business);
+    console.log(business)
+    if (!business) {
+      return res.status(404).json({ error: 'Business not found' }); 
+    }
+    return res.status(200).json(business); 
+    console.log(getBusinessDetail)
   } catch (err) {
-    console.log(err)
-    res.status(400).json(err);
+    console.error(err);
+    return res.status(500).json({ error: 'Server error' }); 
   }
-}
+};
+
+
 
 async function create(req, res) {
   req.body.userId = req.user._id
@@ -37,6 +46,8 @@ async function create(req, res) {
     console.log(req.body)
     const newBusiness = await Business.create(req.body)
     console.log(newBusiness);
+    req.user.business = newBusiness._id
+    req.user.save()
     res.json(newBusiness)
   } catch (err) {
     console.log(err)

@@ -17,3 +17,7 @@ export async function getBusiness(id) {
   const business = await businessesAPI.getBusiness(id);
   return business
 };
+export async function getBusinessDetail(id) {
+  const business = await businessesAPI.getBusinessDetail(id);
+  return business
+};
