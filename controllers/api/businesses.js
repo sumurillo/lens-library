@@ -3,7 +3,6 @@ const User = require('../../models/user');
 
 module.exports = {
   index,
-  // getBusiness,
   getBusinessDetail,
   create,
   updateBusiness,
