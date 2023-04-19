@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import * as businessesService from '../../utilities/businesses-service';
 import * as usersService from '../../utilities/users-service';
+import { Link  } from 'react-router-dom';
 
 
 export default function MyBusiness() {
@@ -22,11 +23,12 @@ export default function MyBusiness() {
     fetchBusiness();
   }, []);
 
-  // async function deleteBusiness(id) {
-  //   await deleteBusiness(id)
-  //   const oneBusiness = getBusiness()
-  //   setBusiness(oneBusiness)
-  // }
+  async function deleteBusiness(id) {
+    await deleteBusiness(id)
+    const user = await usersService.getUser();
+    const aBusiness = await businessesService.getBusinessDetail(user.business)
+    setBusiness(aBusiness)
+  }
 
 
   return (
@@ -38,6 +40,8 @@ export default function MyBusiness() {
       <h3>{business.price}</h3>
       <h3>{business.services}</h3>
       <a href={business.portfolio}>{business.portfolio}</a>
+      <button onClick={ () => deleteBusiness(business._id)}>Delete?</button>
+      <Link to={`businesses/${business._id}/edit`} />
     </div>
     </>
   );
