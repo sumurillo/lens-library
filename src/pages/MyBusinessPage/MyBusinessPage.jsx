@@ -4,18 +4,16 @@ import * as usersService from '../../utilities/users-service';
 
 
 export default function MyBusiness() {
-  const [business, setBusiness] = useState(null);
+  const [business, setBusiness] = useState([]);
 
   useEffect(() => {
     async function fetchBusiness() {
       try {
-        // const photographerBusiness= await businessesService.getBusiness(user);
         const user = await usersService.getUser();
         console.log(user.business)
         const retrievedBusiness = await businessesService.getBusinessDetail(user.business);
         console.log(retrievedBusiness)
-        // const response = await fetch(`/api/business/${user._id}/${business._id}`);
-        // setBusiness(photographerBusiness);
+        setBusiness(retrievedBusiness);
       } catch (error) {
         console.log(error);
       }
@@ -33,9 +31,13 @@ export default function MyBusiness() {
 
   return (
     <>
-    <h3>My Business Page</h3>
+    <h1>My Business Page</h1>
     <div>
-      
+      <h1>{business.name}</h1>
+      <h3>{business.location}</h3>
+      <h3>{business.price}</h3>
+      <h3>{business.services}</h3>
+      <a href={business.portfolio}>{business.portfolio}</a>
     </div>
     </>
   );
