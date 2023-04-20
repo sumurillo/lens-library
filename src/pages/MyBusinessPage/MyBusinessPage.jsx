@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import * as businessesService from '../../utilities/businesses-service';
 import * as usersService from '../../utilities/users-service';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import * as businessesAPI from '../../utilities/businesses-api';
 
 
 export default function MyBusiness() {
   const [business, setBusiness] = useState([]);
-  let {id} = useParams();
 
   useEffect(() => {
     async function fetchBusiness() {
@@ -24,11 +24,11 @@ export default function MyBusiness() {
     fetchBusiness();
   }, []);
 
-  async function deleteBusiness(id) {
-    await deleteBusiness(id)
+  async function deleteBusiness(_id) {
+    await deleteBusiness(_id)
     const user = await usersService.getUser();
-    const business = await businessesService.getBusinessDetail(user.business)
-    setBusiness(business)
+    const business = await businessesAPI.deleteBusinessRequest(_id)
+    // setBusiness(business)
   }
 
 

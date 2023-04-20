@@ -42,9 +42,11 @@ async function create(req, res) {
   try {
     console.log(req.body)
     const newBusiness = await Business.create(req.body)
-    console.log(newBusiness);
-    req.user.business = newBusiness._id
-    req.user.save()
+    if (newBusiness) {
+      const currentUser = await User.findById(req.user._id)
+      currentUser.business = newBusiness._id
+      currentUser.save()
+    }
     res.json(newBusiness)
   } catch (err) {
     console.log(err)
