@@ -7,6 +7,6 @@ const businessesCtrl = require('../../controllers/api/businesses');
 router.get('/', businessesCtrl.index)
 router.get('/:id', businessesCtrl.getBusinessDetail);
 router.post('/', businessesCtrl.create);
-router.put('/:id', businessesCtrl.updateBusiness);
+router.delete('/:id', businessesCtrl.delete);
 
 module.exports = router;

@@ -25,7 +25,8 @@ export default function BusinessDetail() {
       <p>Location: {business.location}</p>
       <p>Price Range: {business.price}</p>
       <p>Services: {business.services}</p>
-      <p>Check out my work: {business.portfolio}</p>
+      <p>Check out my work:</p>
+      <a href={business.portfolio}>{business.portfolio}</a>
     </div>
     </>
   );
