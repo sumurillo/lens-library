@@ -14,6 +14,6 @@ export async function getBusinessDetail(Id) {
   return sendRequest(`${BASE_URL}/${Id}`)
 }
 
-export async function updateBusiness(businessObj) {
-  return await sendRequest(`${BASE_URL}/update`, 'PUT', businessObj);
+export async function deleteBusinessRequest(id) {
+  return sendRequest(`${BASE_URL}/${id}`, 'DELETE')
 }

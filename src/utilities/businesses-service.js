@@ -9,11 +9,11 @@ export async function get() {
   return await businessesAPI.getBusinesses();
 }
 
-export async function updateBusiness(businessObj) {
-  return await businessesAPI.updateBusiness(businessObj);
-}
-
 export async function getBusinessDetail(id) {
   const business = await businessesAPI.getBusinessDetail(id);
   return business
+};
+
+export async function deleteBusiness(id) {
+  const business = await businessesAPI.deleteBusinessRequest(id);
 };

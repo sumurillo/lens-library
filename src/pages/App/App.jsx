@@ -21,7 +21,7 @@ export default function App() {
             <Routes>
               {/* Route components in here */}
               <Route path="/" element={<AllBusinessesPage />} />
-              <Route path="/my-business/edit" element={<ManageBusinessPage />} />
+              <Route path="/new" element={<ManageBusinessPage />} />
               <Route path="/my-business" element={<MyBusinessPage />} />
               <Route path="/businesses/:id" element={<BusinessDetailPage />} />
               <Route path="/add-review" element={<NewReviewPage />} />

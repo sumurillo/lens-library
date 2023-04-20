@@ -40,8 +40,9 @@ export default function MyBusiness() {
       <h3>{business.price}</h3>
       <h3>{business.services}</h3>
       <a href={business.portfolio}>{business.portfolio}</a>
+      <Link to={`/new`}>Create New?</Link>
+      {/* <Link to={`businesses/${business._id}/edit`}>Edit?</Link> */}
       <button onClick={ () => deleteBusiness(business._id)}>Delete?</button>
-      <Link to={`businesses/${business._id}/edit`} />
     </div>
     </>
   );

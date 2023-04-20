@@ -2,7 +2,7 @@ import { useState } from 'react';
 import * as businessesService from '../../utilities/businesses-service';
 
 
-export default function ManageBusinessPage() {
+export default function CreateBusinessPage() {
   const [business, setBusiness] = useState({
     name: '',
     location: '',
@@ -26,7 +26,7 @@ export default function ManageBusinessPage() {
 
   return (
     <>
-    <h1>Your Business</h1>
+    <h1>Create Your Business</h1>
     
     <form action="" onSubmit={handleSubmit} >
       <label htmlFor="name">Name:
