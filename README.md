@@ -15,6 +15,10 @@ ___
 #### Screenshot
 ___
 
+<img src="./public/images/AllBusinesses.png">
+<img src="./public/images/BusinessDetail.png">
+<img src="./public/images/CreateBusiness.png">
+<img src="./public/images/ReviewForm.png">
 
 
 #### Technologies Used
@@ -45,3 +49,4 @@ ___
 ___
 - Add a filter feature to filter photographers by services they provide, pricing, and location
 - Add messaging feature for clients and photographers to message directly with each other
+- Add visually appealing CSS
