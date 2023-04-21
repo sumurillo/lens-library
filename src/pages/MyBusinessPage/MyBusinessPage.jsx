@@ -42,8 +42,8 @@ export default function MyBusiness() {
       <h3>{business.services}</h3>
       <a href={business.portfolio}>{business.portfolio}</a>
       <br />
-      <Link to={`/new`}>Create New?</Link>
-      <button onClick={ () => deleteBusiness(business._id)}>Delete?</button>
+      <a class="manage"><Link to={`/new`}>Create New?</Link></a>
+      <button onClick={ () => deleteBusiness(business._id)} class="manage">Delete?</button>
     </div>
     </>
   );

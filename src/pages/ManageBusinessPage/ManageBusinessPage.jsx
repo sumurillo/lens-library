@@ -6,7 +6,7 @@ export default function CreateBusinessPage() {
   const [business, setBusiness] = useState({
     name: '',
     location: '',
-    price: '$-$$',
+    price: '$$-$$$',
     services: '',
     portfolio: ''
 
@@ -37,9 +37,9 @@ export default function CreateBusinessPage() {
       </label>
       <label htmlFor="price">Pricing Range:</label>
             <select name="price" id="price" onChange={handleChange}>
-              <option name= "price" value="$-$$">$-$$</option>
               <option name= "price" value="$$-$$$">$$-$$$</option>
               <option name= "price" value="$$$-$$$$">$$$-$$$$</option>
+              <option name= "price" value="$$$$-$$$$$">$$$$-$$$$$</option>
             </select>
       <label htmlFor="services">Services:</label>
       <input type="text" name="services" id="services" value={ business.services } onChange={handleChange} />

@@ -156,16 +156,24 @@ button[type="submit"] {
   margin: 1vmin 0 0;
 }
 
-#businessCard {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 50px;
-  background-color: rgba(86, 170, 204, 0.5);
+.business {
+  gap: 30px;
   color: white;
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+  text-align: center;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
+.card {
+    padding: 20px 30px;
+    background: rgba(86, 170, 204, 0.5);
+  }
+
 a {
-  color:rgb(148, 223, 239)
+  color: rgb(148, 223, 239);
+  
 }

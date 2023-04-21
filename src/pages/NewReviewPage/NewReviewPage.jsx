@@ -8,6 +8,7 @@ export default function NewReviewPage() {
     description: '',
     user: ''
   });
+  
 
   function handleChange(evt) {
     setReview({ ...review, [evt.target.name]: evt.target.value });
@@ -25,12 +26,11 @@ export default function NewReviewPage() {
     <>
     <h1>Add a Review!</h1>
     <form action="" onSubmit={handleSubmit}>
-      <label htmlFor="title">Title:
+      <label htmlFor="title">Title:</label>
         <input type="text" name="title" id="title" value={ review.title } onChange={handleChange} />
-      </label>
-      <label htmlFor="description">Description:
+      <label htmlFor="description">Description:</label>
         <input type="text" name="description" id="description" value={ review.description } onChange={handleChange} />
-      </label>
+      <br />
       <input type="submit" value="Submit" />
     </form>
     </>
